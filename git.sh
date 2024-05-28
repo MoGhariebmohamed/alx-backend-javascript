@@ -1,5 +1,5 @@
 #!/bin/bash
 git add .
-commitMessage=${1-:"Automated commit"}
+commitMessage="$*"
 git commit -m "$commitMessage"
 git push
