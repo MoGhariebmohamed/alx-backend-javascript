@@ -1,4 +1,3 @@
-export default function returnHowManyArguments(...theArgs) {
-  const myCount = theArgs.length;
-  return myCount;
+export default function concatArrays(array1, array2, string) {
+return 
 }
