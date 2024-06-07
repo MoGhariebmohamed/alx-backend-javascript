@@ -1,47 +1,68 @@
-interface Student {
-    firstName: string,
-    lastName: string,
-    age: number,
-    location: string
-}
-const [student1, student2] = [
-    {
-        firstName: "Gon",
-        lastName: "Freecs",
-        age: 12,
-        location: "New-York"
-    },
-    {
-        firstName: "Suzan",
-        lastName: "Storm",
-        age: 30,
-        location: "Amsterdam"
+export interface DirectorInterface {
+    workFromHome(): string;
+    getCoffeeBreak(): string;
+    workDirectorTasks(): string;
+  }
+  
+  export interface TeacherInterface {
+    workFromHome(): string;
+    getCoffeeBreak(): string;
+    workTeacherTasks(): string;
+  }
+  
+  export class Director implements DirectorInterface {
+    workFromHome() {
+      return 'Working from home';
     }
-]
-
-const studentsList : Array<Student> = [student1, student2];
-
-const body: HTMLBodyElement = document.getElementsByTagName("body")[0];
-const table : HTMLTableElement = document.createElement("table");
-const thead : HTMLTableSectionElement = document.createElement("thead");
-const tbody : HTMLTableSectionElement = document.createElement("tbody");
-const rowHead: HTMLTableRowElement = thead.insertRow(0);
-const firstCellHead : HTMLTableCellElement = rowHead.insertCell(0);
-const secondCellHead: HTMLTableCellElement = rowHead.insertCell(1);
-
-firstCellHead.innerHTML = "firstName";
-secondCellHead.innerHTML = "location";
-table.append(thead);
-
-
-studentsList.forEach(student => {
-    const row : HTMLTableRowElement = tbody.insertRow(0);
-    const firstCell : HTMLTableCellElement = row.insertCell(0);
-    const secondCell : HTMLTableCellElement = row.insertCell(1);
-
-    firstCell.innerHTML = student.firstName;
-    secondCell.innerHTML = student.location;
-});
-
-table.append(tbody);
-body.append(table);
+  
+    getCoffeeBreak() {
+      return 'Getting a coffee break';
+    }
+  
+    workDirectorTasks() {
+      return 'Getting to director tasks';
+    }
+  }
+  
+  export class Teacher implements TeacherInterface {
+    workFromHome() {
+      return 'Cannot work from home';
+    }
+  
+    getCoffeeBreak() {
+      return 'Cannot have a break';
+    }
+  
+    workTeacherTasks() {
+      return 'Getting to work';
+    }
+  }
+  
+  export function createEmployee(salary: (number | string)): (Director | Teacher) {
+    if (typeof salary === 'number' && salary < 500) {
+      return new Teacher();
+    }
+    return new Director();
+  }
+  
+  export function isDirector(employee: (Director | Teacher)) {
+    return employee instanceof Director;
+  }
+  
+  export function executeWork(employee: (Director | Teacher)) {
+    if (isDirector(employee)) {
+      return (employee as Director).workDirectorTasks();
+    }
+    return (employee as Teacher).workTeacherTasks();
+  }
+  
+  export type Subjects = ('Math' | 'History');
+  
+  export function teachClass(todayClass: Subjects): string {
+    if (todayClass === 'Math') {
+      return 'Teaching Math';
+    }
+    if (todayClass === 'History') {
+      return 'Teaching History';
+    }
+  }

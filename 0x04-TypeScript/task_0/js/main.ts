@@ -6,15 +6,15 @@ interface Student {
 }
 const [student1, student2] = [
     {
-        firstName: "Gon",
-        lastName: "Freecs",
-        age: 12,
-        location: "New-York"
+        firstName: "mohamed",
+        lastName: "gharieb",
+        age: 25,
+        location: "cairo"
     },
     {
-        firstName: "Suzan",
-        lastName: "Storm",
-        age: 30,
+        firstName: "nour",
+        lastName: "ali",
+        age: 20,
         location: "Amsterdam"
     }
 ]
