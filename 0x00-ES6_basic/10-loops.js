@@ -1,13 +1,9 @@
-function getCurrentYear() {
-  const date = new Date();
-  return date.getFullYear();
-}
+export default function appendToEachArrayValue(array, appendString) {
+  let newArray = [];
+  for (let idx of array) {
+    newArray.push(appendString + idx);
+  }
 
-export default function getBudgetForCurrentYear(income, gdp, capita) {
-  const budget = {
-    [`income-${getCurrentYear()}`]: income,
-    [`gdp-${getCurrentYear()}`]: gdp,
-    [`capita-${getCurrentYear()}`]: capita,
-  };
-  return budget;
+  return newArray;
 }
+console.log(appendToEachArrayValue(['appended', 'fixed', 'displayed'], 'correctly-'));
