@@ -1,4 +1,9 @@
-export default function concatArrays(array1, array2, string) {
-  const concatArry = [...array1, ...array2, ...string];
-  return concatArry;
+export default function getBudgetObject(income, gdp, capita) {
+  const budget = {
+    income: int = income,
+    gdp: int = gdp,
+    capita: int = capita,
+  };
+
+  return budget;
 }
