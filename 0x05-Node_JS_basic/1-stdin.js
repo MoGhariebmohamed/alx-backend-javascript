@@ -1,6 +1,3 @@
-/**
- * to get the function
- */
 function displayMessage(stdOut) {
     console.log(stdOut);
 }
