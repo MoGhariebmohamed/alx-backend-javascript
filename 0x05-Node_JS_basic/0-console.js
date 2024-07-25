@@ -2,7 +2,7 @@
  * to get the function
  */
 function displayMessage(stdOut) {
-    console.log(stdOut);
+  console.log(stdOut);
 }
 
 module.exports = displayMessage;
